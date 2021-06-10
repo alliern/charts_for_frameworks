@@ -1,10 +1,16 @@
 /*global Chart, axios */
 
 axios
-  .get("https://api.github.com")
+  .get("https://api.github.com/repos/vuejs/vue")
   .then(function (response) {
     // handle success
     console.log(response.data);
+    let forks = response.data["forks_count"];
+    console.log(forks);
+    let stargazers = response.data["stargazers_count"];
+    console.log(stargazers);
+    let watchers = response.data["watchers_count"];
+    console.log(watchers);
   })
   .catch(function (error) {
     // handle error

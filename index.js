@@ -1,7 +1,18 @@
-/*global Chart */
+/*global Chart, axios */
 
-const { default: Axios } = require("Axios");
-Axios.get("https://github.com/vuejs/vue");
+axios
+  .get("https://api.github.com")
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
 
 var ctx = document.getElementById("myChart").getContext("2d");
 var myChart = new Chart(ctx, {
